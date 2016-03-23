@@ -1,5 +1,25 @@
 <div id="loginView">
-	<input type="text" ng-model="userName">
-	<button type="submit" ng-click="getUserName(userName)">Submit</button>
-	<button type="button" class="btn btn-info" id="loginButton">Login</button>
+	<!-- <input type="text" ng-model="userName">
+	<button type="submit" ng-click="getUserName(userName)">Submit</button> -->
+
+	<!--LOGIN BUTTON-->
+	<button type="button" class="btn btn-info" id="loginButton" data-toggle="modal" data-target=".bd-example-modal-sm">Login</button>
+	<!--LOGIN MODAL-->
+	<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog">
+  		<div class="modal-dialog modal-sm">
+    		<div class="modal-content">
+    			<h4>Login or Sign up</h4>
+    			<input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="userEmail">
+    			 <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="userPassword">
+    			 <div class="btn-group" role="group">
+  					<button type="button" class="btn btn-default" ng-click="userLogin()">Login</button>
+  					<button type="button" class="btn btn-default" ng-click="userSignUp()">Sign up</button>
+				</div>
+    		</div>
+  		</div>
+	</div> <!--END OF LOGIN MODAL-->
+
+
+
+
 </div>

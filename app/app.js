@@ -1,6 +1,6 @@
 "use strict";
 
-let app = angular.module("atticApp", ["ngRoute"]);
+let app = angular.module("atticApp", ["ngRoute", "firebase"]);
 
 app.config(function($routeProvider) {
 

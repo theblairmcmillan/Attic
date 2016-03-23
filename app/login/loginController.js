@@ -1,5 +1,5 @@
 "use strict";
-app.controller("loginController", ["$scope", "$location", function($scope, $location) {
+app.controller("loginController", ["$scope", "$location", "$firebase" function($scope, $location $firebase) {
 
 	// // click function on submit button
 	// $scope.getUserName = function(text) {
@@ -8,7 +8,7 @@ app.controller("loginController", ["$scope", "$location", function($scope, $loca
 	// };
 
 	var ref = new Firebase("https://atticapp.firebaseio.com/");
-	ref = $firebaseAuth(ref);
+	// ref = $firebaseAuth(ref);
 
 
 // SIGN UP NEW USER //
@@ -26,7 +26,7 @@ app.controller("loginController", ["$scope", "$location", function($scope, $loca
 
 
 
-
+3
 
 
 

@@ -4,13 +4,11 @@ app.factory("authFactory",["$location", function ($location) {
 
   let ref = new Firebase("https://atticapp.firebaseio.com/");
 
-  
+  var userData = {};
 
   return {
 
-    /*
-      Determine if the client is authenticated
-     */
+    // DETERMINE IF CLIENT IS AUTHORIZED //
     isAuthenticated () {
       let authData = ref.getAuth();
 
@@ -20,9 +18,7 @@ app.factory("authFactory",["$location", function ($location) {
         return false;
       }
     },
-    /*
-      Authenticate the client via Firebase
-     */
+    // AUTH VIA FIREBASE //
     authenticate (credentials) {
       return new Promise((resolve, reject) => {
         ref.authWithPassword({
@@ -44,6 +40,18 @@ app.factory("authFactory",["$location", function ($location) {
       console.log("logout succesful");
       }
     };
+
+    // setUserData = function(){
+      
+    // }
+
+   // setUserData: function(id, title, content) {
+   //            user.email = email;
+   //        },
+   //        getUserData: function() {
+   //            return note;
+   //        }
+   //    };
   }]);
 
 

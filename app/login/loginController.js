@@ -4,13 +4,10 @@ app.controller("loginController", ["$scope", "$location","$http", "authFactory",
     let ref = new Firebase("https://atticapp.firebaseio.com/");
     var usersRef = new Firebase("https://atticapp.firebaseio.com/users/");
 
-    // Variables on $scope for use in DOM
+    // VARIABLES ON SCOPE FOR USE IN DOM //
     $scope.account = { email: "", password: "" };
 
-    /*
-      Attempt to register a new user account.
-      If successful, immediately log user in.
-     */
+    // REGISTER NEW ACCOUNT AND LOG USER IN //
     $scope.userSignUp = () => {
       ref.createUser({
         email    : $scope.account.email,
@@ -23,17 +20,15 @@ app.controller("loginController", ["$scope", "$location","$http", "authFactory",
           usersRef.push({
           	 email    : $scope.account.email
           });
-
+          // get the unique stored key for that user
+          // set the authFactory setUserData() with email and unique key
 
           $scope.userLogin();
         }
       });
     };
 
-    /*
-      Attempt to authenticate the user with the
-      supplied credentials.
-     */
+    // AUTH USER WITH SUPPLIED EMAIL AND PASSWORD //
     $scope.userLogin = () =>
       authFactory
         .authenticate($scope.account)

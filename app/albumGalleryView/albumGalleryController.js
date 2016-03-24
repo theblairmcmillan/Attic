@@ -1,9 +1,13 @@
 "use strict";
-app.controller("albumGalleryController", ["$scope", "$location", function($scope, $location) {
-	console.log("albums GALLERY controller!!!!!!");
+app.controller("albumGalleryController", ["$scope", "$location", "authFactory", function($scope, $location, authFactory) {
+	console.log("albums GALLERY controller");
 
-	// const albumId = $stateParams.id
-	// get this shit from firebase with that album's id
+	$scope.logout = () => {
+		authFactory.userLogout()
+	    console.log("logout succesful");
+	};
+
+	
 
 
 }]);

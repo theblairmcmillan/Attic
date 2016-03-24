@@ -1,10 +1,11 @@
 "use strict";
 
-app.factory("authFactory", function () {
+app.factory("authFactory",["$location", function ($location) {
 
   let ref = new Firebase("https://atticapp.firebaseio.com/");
 
   return {
+
     /*
       Determine if the client is authenticated
      */
@@ -34,6 +35,16 @@ app.factory("authFactory", function () {
           }
         });
       });
-    }
-  };
-});
+    },
+    userLogout () {
+      ref.unauth();
+      $location.path("/login");
+      console.log("logout succesful");
+      }
+    };
+  }]);
+
+
+
+
+

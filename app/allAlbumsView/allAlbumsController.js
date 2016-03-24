@@ -1,14 +1,11 @@
 "use strict";
 
-app.controller("allAlbumsController", ["$scope", "$location", function($scope, $location) {
-
+app.controller("allAlbumsController", ["$scope", "$location", "authFactory", function ($scope, $location, authFactory) {
 console.log("all albums controller");
 
-	let ref = new Firebase("https://atticapp.firebaseio.com/");
 
 	$scope.logout = () => {
-		ref.unauth();
-		$location.path("/login");
+		authFactory.userLogout()
 	    console.log("logout succesful");
 	};
 

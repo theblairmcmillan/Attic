@@ -1,5 +1,21 @@
 <div id="allAlbumsView">
 	<h1>ALL ALBUMS VIEW</h1>
 	<button type="button" class="btn btn-info" ng-click="logout()">Logout</button>
+	<!--ADD ALBUM BUTTON -->
+	<button type="button" class="btn btn-info" id="addAlbumButton" data-toggle="modal" data-target=".bd-example-modal-sm">Create Album</button>
+	<!--ADD ALBUM MODAL -->
+	<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog">
+  		<div class="modal-dialog modal-sm">
+    		<div class="modal-content">
+    			<h4>Create Album</h4>
+    			<!--INPUTS-->
+    			<input type="text" class="form-control" placeholder="Album Name" ng-model="account.album">
+    			 	<!--BUTTON-->
+  					<button type="button" class="btn btn-default" ng-click="addAlbum()">Create Album</button>
+				</div>
+    		</div>
+  		</div>
+	</div> <!--END OF CREATE ALBUM MODAL-->
+
 
 </div>

@@ -9,9 +9,11 @@
   		<div class="modal-dialog modal-sm">
     		<div class="modal-content">
     			<h4>Login or Sign up</h4>
-    			<input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="userEmail">
-    			 <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="userPassword">
+    			<!--INPUTS-->
+    			<input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="account.email">
+    			 <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="account.password">
     			 <div class="btn-group" role="group">
+    			 	<!--BUTTONS-->
   					<button type="button" class="btn btn-default" ng-click="userLogin()">Login</button>
   					<button type="button" class="btn btn-default" ng-click="userSignUp()">Sign up</button>
 				</div>

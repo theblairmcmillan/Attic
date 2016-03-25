@@ -29,6 +29,9 @@ app.factory("authFactory",["$location", function ($location) {
             reject(error);
           } else {
             console.log("Successfully completed authorization.");
+            // set the authFactory setUserData() with email and unique key
+            userData.email = authData.password.email;
+            userData.uid = authData.uid;
             resolve(authData);
           }
         });
@@ -38,21 +41,12 @@ app.factory("authFactory",["$location", function ($location) {
       ref.unauth();
       $location.path("/login");
       console.log("logout succesful");
-      }
-    };
-
-    // setUserData = function(){
-      
-    // }
-
-   // setUserData: function(id, title, content) {
-   //            user.email = email;
-   //        },
-   //        getUserData: function() {
-   //            return note;
-   //        }
-   //    };
-  }]);
+    },
+    getUserData() {
+        return userData;
+    }
+  }; // end return object
+}]); // end factory
 
 
 

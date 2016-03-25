@@ -2,10 +2,12 @@
 
 app.controller("allAlbumsController", ["$scope", "$location", "authFactory", function ($scope, $location, authFactory) {
 
-	var albumsRef = new Firebase("https://atticapp.firebaseio.com/albums");
-	var usersAlbumsRef = new Firebase("https://atticapp.firebaseio.com/users/albums");
+	var userData = authFactory.getUserData();
+	console.log("userDataFromAlbumControl", userData);
 
-	// var userData = authFactory.getUserData();
+	var albumsRef = new Firebase("https://atticapp.firebaseio.com/albums");
+	var usersAlbumsRef = new Firebase("https://atticapp.firebaseio.com/users/" + userData.uid + "/albums");
+
 
 	// LOGOUT BUTTON //
 	$scope.logout = () => {
@@ -17,13 +19,14 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory", fun
 	$scope.addAlbum = () => {
 	    albumsRef.push({
 	    	album: $scope.album,
-	    }),
+	    	author: userData.uid
+	    });
 	    usersAlbumsRef.push({
 	        album    : $scope.album
-	       }),
-	        $('div.fade').remove();
-        	$location.path("/album-gallery");
-	    };
+	    });
+        $('div.fade').remove();
+    	$location.path("/album-gallery");
+	};
 }]);
 
 

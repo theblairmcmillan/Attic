@@ -1,2 +1,48 @@
-body {
-  background-color: blue; }
+/* NAVBAR CSS FROM BUILDER */
+#custom-bootstrap-menu.navbar-default .navbar-brand {
+  color: #e85a71; }
+
+#custom-bootstrap-menu.navbar-default {
+  font-size: 14px;
+  background-color: #454552;
+  border-bottom-width: 0px; }
+
+#custom-bootstrap-menu.navbar-default .navbar-nav > li > a {
+  color: snow;
+  background-color: #454552; }
+
+#custom-bootstrap-menu.navbar-default .navbar-nav > li > a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav > li > a:focus {
+  color: #e85a71;
+  background-color: #4ea1d3; }
+
+#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a,
+#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a:hover,
+#custom-bootstrap-menu.navbar-default .navbar-nav > .active > a:focus {
+  color: #d8e9ef;
+  background-color: #4ea1d3; }
+
+#custom-bootstrap-menu.navbar-default .navbar-toggle {
+  border-color: #4ea1d3; }
+
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus {
+  background-color: #4ea1d3; }
+
+#custom-bootstrap-menu.navbar-default .navbar-toggle .icon-bar {
+  background-color: #4ea1d3; }
+
+#custom-bootstrap-menu.navbar-default .navbar-toggle:hover .icon-bar,
+#custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
+  background-color: #454552; }
+
+#video-background {
+  /*  making the video fullscreen  */
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100; }

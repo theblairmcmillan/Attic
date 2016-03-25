@@ -36,6 +36,7 @@
 #custom-bootstrap-menu.navbar-default .navbar-toggle:focus .icon-bar {
   background-color: #454552; }
 
+/* HOMEPAGE VIDEO REEL */
 #video-background {
   /*  making the video fullscreen  */
   position: fixed;
@@ -46,3 +47,115 @@
   width: auto;
   height: auto;
   z-index: -100; }
+
+#loginText > h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 5em;
+  margin-top: 20%; }
+
+/* SLIDING TEXT ON HOMESCREEN */
+.content-slider {
+  width: 100%;
+  height: 200px; }
+
+.slider {
+  height: 320px;
+  width: 680px;
+  margin: 30px auto 0;
+  overflow: visible;
+  position: relative; }
+
+.mask {
+  overflow: hidden;
+  height: 200px; }
+
+.slider ul {
+  margin: 0;
+  padding: 0;
+  position: relative; }
+
+.slider li {
+  width: 680px;
+  height: 200px;
+  position: absolute;
+  top: -325px;
+  list-style: none; }
+
+.slider .quote {
+  font-size: 2em;
+  color: #e85a71;
+  text-align: center;
+  font-family: futura; }
+
+.slider li.anim1 {
+  -moz-animation: cycle 15s linear infinite;
+  -webkit-animation: cycle 15s linear infinite;
+  animation: cycle 15s linear infinite; }
+
+.slider li.anim2 {
+  -moz-animation: cycle2 15s linear infinite;
+  -webkit-animation: cycle2 15s linear infinite;
+  animation: cycle2 15s linear infinite; }
+
+@-webkit-keyframes cycle {
+  0% {
+    top: 0px; }
+  4% {
+    top: 0px; }
+  16% {
+    top: 0px;
+    opacity: 1;
+    z-index: 0; }
+  20% {
+    top: 325px;
+    opacity: 0;
+    z-index: 0; }
+  21% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1; }
+  50% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1; }
+  92% {
+    top: -325px;
+    opacity: 0;
+    z-index: 0; }
+  96% {
+    top: -325px;
+    opacity: 0; }
+  100% {
+    top: 0px;
+    opacity: 1; } }
+
+@-webkit-keyframes cycle2 {
+  0% {
+    top: -325px;
+    opacity: 0; }
+  16% {
+    top: -325px;
+    opacity: 0; }
+  20% {
+    top: 0px;
+    opacity: 1; }
+  24% {
+    top: 0px;
+    opacity: 1; }
+  36% {
+    top: 0px;
+    opacity: 1;
+    z-index: 0; }
+  40% {
+    top: 325px;
+    opacity: 0;
+    z-index: 0; }
+  41% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1; }
+  100% {
+    top: -325px;
+    opacity: 0;
+    z-index: -1; } }

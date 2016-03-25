@@ -1,4 +1,49 @@
 <div id="albumGalleryView">
+	<div id="custom-bootstrap-menu" class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header"><a class="navbar-brand" ng-click="albumView()">Attic</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-right">
+            	<li><a id="addImageButton" data-toggle="modal" data-target=".bd-example-modal-sm">Add Images</a>
+                <li><a id="addAlbumButton">Your Albums</a></li>
+                <li><a ng-click="logout()">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div> <!-- END OF NAVBAR -->
 <h1>Album Gallery View</h1>
-<button type="button" class="btn btn-info" ng-click="logout()">Logout</button>
+
+	<!--ADD IMAGE MODAL-->
+	<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog">
+  		<div class="modal-dialog modal-sm">
+    		<div class="modal-content">
+    			<h4>ADD IMAGE</h4>
+    			<!--INPUTS-->
+    			 <input type="text" class="form-control" id="imageTitle" placeholder="image title" ng-model="image">
+    			 <div class="btn-group" role="group">
+    			 	<!--BUTTONS-->
+  					<button type="button" class="btn btn-default" ng-click="addImage()">Add Image</button>
+				</div>
+    		</div>
+  		</div>
+	</div> <!--END OF LOGIN MODAL-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </div>
+

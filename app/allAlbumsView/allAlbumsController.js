@@ -24,6 +24,7 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory", fun
 	    usersAlbumsRef.push({
 	        album    : $scope.album
 	    });
+	    // albumFactory.setCurrentAlbum($scope.album);
         $('div.fade').remove();
     	$location.path("/album-gallery");
 	};

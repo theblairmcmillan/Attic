@@ -1,11 +1,13 @@
 "use strict";
-app.controller("albumGalleryController", ["$scope", "$location", "authFactory", function($scope, $location, authFactory) {
-	console.log("albums GALLERY controller");
+app.controller("albumGalleryController", ["$scope", "$location", "authFactory", "albumFactory", function($scope, $location, authFactory, albumFactory) {
+	console.log("albums gallery controller");
 
 	var userData = authFactory.getUserData();
 	console.log("userDataFromAlbumGalleryControl", userData);
 
 	var imagesRef = new Firebase("https://atticapp.firebaseio.com/images");
+
+	var currentAlbumKey = albumFactory.getCurrentAlbum();
 	
 	//LOGOUT FUNCTION //
 	$scope.logout = () => {
@@ -26,7 +28,7 @@ app.controller("albumGalleryController", ["$scope", "$location", "authFactory", 
 		// SET IMAGE LOCATION IN FIREBASE //
 	    imagesRef.push({
 	    	image: $scope.image,
-	    	// parentAlbum: $scope.album
+	    	album: currentAlbumKey
 	    });
         $('div.fade').remove();
 	};

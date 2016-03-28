@@ -10,7 +10,7 @@ app.controller("albumGalleryController", ["$scope", "$location", "authFactory", 
 	var currentAlbumKey = albumFactory.getCurrentAlbum();
 	
 
-	// UPLOADING IMAGES TO FIREBASE //
+	// UPLOADING IMAGE TO FIREBASE //
 	 $scope.upload = function(file) {
 	    Upload.base64DataUrl(file).then(function(base64Urls){
 	    	console.log("getting here");
@@ -21,6 +21,18 @@ app.controller("albumGalleryController", ["$scope", "$location", "authFactory", 
 	    	})
 	    });
 	  };
+
+	// DROPING IMAGE TO FIREBASE //
+	$scope.uploadFiles = function(files) {
+		Upload.base64DataUrl(files).then(function(base64Urls){
+			console.log("dropzone registering");
+			imagesRef.push({
+				image: base64Urls[0],
+				album: currentAlbumKey,
+				uploaded_by: userData.uid
+			})
+		});
+	};
 
 	
 	//LOGOUT FUNCTION //

@@ -10,9 +10,9 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory","alb
 	var currentAlbumKey = null;
 
 	albumsRef.on('child_added', function(snapshot) {
-	   	console.log("snapshot:", snapshot);
+	   	// console.log("snapshot:", snapshot);
 	    currentAlbumKey = snapshot.key();
-	    console.log("currentAlbumKey", currentAlbumKey);
+	    // console.log("currentAlbumKey", currentAlbumKey);
 	    albumFactory.setCurrentAlbum(currentAlbumKey);
 	});
 
@@ -36,6 +36,14 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory","alb
     	$location.path("/album-gallery");
 
 	};
+
+	// CHECKING FOR ALBUMS TO DISPLAY TO THE PAGE // 
+	albumsRef.once("value", function(snapshot) {
+  		$scope.albums = snapshot.val();
+		console.log($scope.albums);
+	});
+
+
 	 
 }]);
 

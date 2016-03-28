@@ -17,20 +17,25 @@
 </div> <!-- END OF NAVBAR -->
 <h1>Album Gallery View</h1>
 
-	<!--ADD IMAGE MODAL-->
-	<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog">
-  		<div class="modal-dialog modal-sm">
-    		<div class="modal-content">
-    			<h4>ADD IMAGE</h4>
-    			<!--INPUTS-->
-    			 <input type="text" class="form-control" id="imageTitle" placeholder="image title" ng-model="image">
-    			 <div class="btn-group" role="group">
-    			 	<!--BUTTONS-->
-  					<button type="button" class="btn btn-default" ng-click="addImage()">Add Image</button>
-				</div>
-    		</div>
-  		</div>
-	</div> <!--END OF LOGIN MODAL-->
+    <div class="button" ngf-select="upload($file)">Upload on file select</div>
+<div class="button" ngf-select="uploadFiles($files)" multiple="multiple">Upload on file select</div>
+  Drop File:
+<div ngf-drop="uploadFiles($files)" class="drop-box"
+  ngf-drag-over-class="'dragover'" ngf-multiple="true" 
+  ngf-pattern="'image/*,application/pdf'">Drop Images or PDFs files here</div>
+<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+
+
+
+   
+
+
+       
+
+
+
+
+</div> <!-- END OF PARTIAL -->
 
 
 
@@ -42,8 +47,4 @@
 
 
 
-
-
-
-</div>
 

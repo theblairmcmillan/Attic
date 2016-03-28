@@ -49,7 +49,7 @@
   min-height: 100%;
   width: auto; 
   height: auto;
-  z-index: -100;
+  z-index: -1;
 }
 
 #loginText > h1 {
@@ -200,9 +200,9 @@
   letter-spacing: 2em;
 }
 
-body {
-  background-color: #d8e9ef;
-  
+body,
+html {
+  height: 100%
 }
 
 #dropZone {

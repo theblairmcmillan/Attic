@@ -24,6 +24,7 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory","alb
 
 	// CREATE NEW ALBUM // 
 	$scope.addAlbum = () => {
+		var key = "";
 	    albumsRef.push({
 	    	album: $scope.album,
 	    	author: userData.uid
@@ -31,9 +32,12 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory","alb
 	    usersAlbumsRef.push({
 	        album    : $scope.album
 	    });
+	    usersAlbumsRef.limitToLast(1).once("child_added", function (snapshot) {
+	    	key = snapshot.key();
+	    });
 	    // albumFactory.setCurrentAlbum($scope.album);
         $('div.fade').remove();
-    	$location.path("/album-gallery");
+    	$location.path(`/album-gallery/${key}`);
 
 	};
 
@@ -41,8 +45,13 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory","alb
 	albumsRef.once("value", function(snapshot) {
   		$scope.albums = snapshot.val();
 		console.log($scope.albums);
+		console.log(">>>>>>>>>>");
 	});
 
+	// GO INSIDE SELECTED ALBUM //
+	$scope.goToAlbum = (key) => {
+		$location.path(`/album-gallery/${key}`);
+	}
 
 	 
 }]);

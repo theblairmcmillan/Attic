@@ -32,10 +32,8 @@
 		</div>
 	</div> <!--END OF CREATE ALBUM MODAL-->
     <!-- DISPLAY USERS ALBUMS -->
-    <div ng-repeat="album in albums">
-        <div ng-repeat="(key, value) in album">
-            <p>{{value.album}}</p>
-        </div>
+    <div ng-repeat="(key, value) in albums">
+        <p ng-click="goToAlbum(key)" id={{key}}>{{value.album}}</p>
     </div>
 </div> 
 

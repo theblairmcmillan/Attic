@@ -10,7 +10,12 @@ app.factory("albumFactory",["$location", function ($location) {
 	    },
 	    setCurrentAlbum(key) {
 	    	currentAlbumKey = key;
+	    },
+	    getAllAlbums() {
+	    	$http.get // write function to get all albums // 
+
 	    }
+
   	}; // end return object
 }]); // end factory
 

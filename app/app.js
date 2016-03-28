@@ -14,7 +14,7 @@ app.config(function($routeProvider) {
         	templateUrl: "app/allAlbumsView/allAlbumsView.html",
         	controller: "allAlbumsController"
         })
-        .when('/album-gallery',{
+        .when('/album-gallery/:id',{
         	templateUrl: "app/albumGalleryView/albumGalleryView.html",
         	controller: "albumGalleryController"
         })

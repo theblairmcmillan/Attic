@@ -192,4 +192,24 @@
   }
 }
 
+.pageHeader {
+  display: block;
+  margin-top: 0;
+  text-align: center;
+  color: #454552;
+  letter-spacing: 2em;
+}
+
+body {
+  background-color: #d8e9ef;
+  
+}
+
+#dropZone {
+  border: 2px dashed #454552;
+  height: 150px;
+  text-align: center;
+  margin: 2%;
+}
+
 

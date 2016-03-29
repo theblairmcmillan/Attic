@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("allAlbumsController", ["$scope", "$location", "authFactory","albumFactory", function ($scope, $location, authFactory, albumFactory) {
+app.controller("allAlbumsController", ["$scope", "$location", "authFactory", "albumFactory", function ($scope, $location, authFactory, albumFactory) {
 
 	var userData = authFactory.getUserData();
 	console.log("userDataFromAlbumControl", userData);
@@ -8,6 +8,9 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory","alb
 	var albumsRef = new Firebase("https://atticapp.firebaseio.com/albums");
 	var usersAlbumsRef = new Firebase("https://atticapp.firebaseio.com/users/" + userData.uid + "/albums");
 	var currentAlbumKey = null;
+
+	$scope.albums = '';
+
 
 	albumsRef.on('child_added', function(snapshot) {
 	   	// console.log("snapshot:", snapshot);
@@ -38,7 +41,6 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory","alb
 	    // albumFactory.setCurrentAlbum($scope.album);
         $('div.fade').remove();
     	$location.path(`/album-gallery/${key}`);
-
 	};
 
 	// CHECKING FOR ALBUMS TO DISPLAY TO THE PAGE // 
@@ -51,8 +53,7 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory","alb
 	// GO INSIDE SELECTED ALBUM //
 	$scope.goToAlbum = (key) => {
 		$location.path(`/album-gallery/${key}`);
-	}
-
+	};
 	 
 }]);
 

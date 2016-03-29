@@ -160,6 +160,11 @@
     opacity: 0;
     z-index: -1; } }
 
+/* LOGIN MODAL */
+.modal {
+  padding: 5%;
+  text-align: center; }
+
 .pageHeader {
   display: block;
   margin-top: 0;
@@ -172,7 +177,13 @@ html {
   height: 100%; }
 
 #dropZone {
-  border: 2px dashed #454552;
+  border: 3px dashed #454552;
   height: 150px;
   text-align: center;
-  margin: 2%; }
+  margin: 2%;
+  padding: 2%;
+  color: #e85a71; }
+
+#imageDropReveal {
+  display: inline-block;
+  margin-left: 2%; }

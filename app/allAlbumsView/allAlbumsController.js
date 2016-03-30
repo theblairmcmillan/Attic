@@ -47,7 +47,6 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory", "al
 	albumsRef.once("value", function(snapshot) {
   		$scope.albums = snapshot.val();
 		console.log($scope.albums);
-		console.log(">>>>>>>>>>");
 	});
 
 	// GO INSIDE SELECTED ALBUM //

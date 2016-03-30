@@ -58,4 +58,14 @@ app.controller("albumGalleryController", ["$scope", "$location", "authFactory", 
 	    });
         $('div.fade').remove();
 	};
+
+	// CHECKING FOR IMAGES TO DISPLAY TO THE ALBUM PAGE // 
+	imagesRef.once("value", function(snapshot) {
+  		$scope.images = snapshot.val();
+		console.log("IMAGES",$scope.images);
+		console.log("CHECKING FOR IMAGES");
+	});
+
+
+
 }]);

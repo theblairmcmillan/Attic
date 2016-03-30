@@ -25,20 +25,12 @@
   ngf-pattern="'image/*,application/pdf'">Drop Files Here</div>
 <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
 
-<div>
-    <img style='display:block; width:100px;height:100px;'                
+<div class="row">
+        <div class="col-sm-3 col-md-3 imagesCol" ng-repeat="image in images"> 
+            <img ng-src="{{image.image}}" height="200px" width="200px">
+        </div>
+    </div>   
        
-
-
-
-
-
-   
-
-
-       
-
-
 
 
 </div> <!-- END OF PARTIAL -->

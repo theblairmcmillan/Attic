@@ -34,7 +34,8 @@
     <!-- DISPLAY USERS ALBUMS -->
     <div class="row">
         <div class="col-sm-3 col-md-3 albumCol" ng-repeat="(key, value) in albums">
-            <div ng-click="goToAlbum(key)" id='{{key}}'>{{value.album}}</div>
+            <div><img src="icons/foldericon.ico" height="100px" width="100px"></div>
+            <div ng-click="goToAlbum(key)" id='{{key}}'>{{value.album}} </div>
         </div>
     </div>
 </div> 

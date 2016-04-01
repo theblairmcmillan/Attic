@@ -1,6 +1,6 @@
 "use strict";
 
-let app = angular.module("atticApp", ["ngRoute", "flow", "ngFileUpload"]);
+let app = angular.module("atticApp", ["ngRoute", "firebase", "ngFileUpload"]);
 
 app.config(function($routeProvider) {
 
@@ -14,7 +14,7 @@ app.config(function($routeProvider) {
         	templateUrl: "app/allAlbumsView/allAlbumsView.html",
         	controller: "allAlbumsController"
         })
-        .when('/album-gallery',{
+        .when('/album-gallery/:id',{
         	templateUrl: "app/albumGalleryView/albumGalleryView.html",
         	controller: "albumGalleryController"
         })

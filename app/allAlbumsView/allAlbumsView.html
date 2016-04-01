@@ -32,9 +32,10 @@
 		</div>
 	</div> <!--END OF CREATE ALBUM MODAL-->
     <!-- DISPLAY USERS ALBUMS -->
-    <div ng-repeat="album in albums">
-        <div ng-repeat="(key, value) in album">
-            <p>{{value.album}}</p>
+    <div class="row">
+        <div class="col-sm-3 col-md-3 albumCol" ng-repeat="(key, value) in albums">
+            <div><img src="icons/foldericon.ico" height="100px" width="100px"></div>
+            <div ng-click="goToAlbum(key)" id='{{key}}'>{{value.album}} </div>
         </div>
     </div>
 </div> 

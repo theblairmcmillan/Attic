@@ -13,7 +13,7 @@ app.controller("albumGalleryController", ["$scope", "$location", "authFactory", 
 	// UPLOADING IMAGE TO FIREBASE //
 	 $scope.upload = function(file) {
 	    Upload.base64DataUrl(file).then(function(base64Urls){
-	    	console.log("getting here");
+	    	console.log("Image upload function triggered");
 	    	imagesRef.push({
 	    		image: base64Urls,
 	    		album: currentAlbumKey,
@@ -58,4 +58,14 @@ app.controller("albumGalleryController", ["$scope", "$location", "authFactory", 
 	    });
         $('div.fade').remove();
 	};
+
+	// CHECKING FOR IMAGES TO DISPLAY TO THE ALBUM PAGE // 
+	imagesRef.once("value", function(snapshot) {
+  		$scope.images = snapshot.val();
+		console.log("IMAGES",$scope.images);
+		console.log("CHECKED FOR IMAGES");
+	});
+
+
+
 }]);

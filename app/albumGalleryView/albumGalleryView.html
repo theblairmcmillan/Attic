@@ -17,7 +17,7 @@
     </div>
 </div> <!-- END OF NAVBAR -->
 <div class="pageHeader">
-    <h3>WELCOME TO ALBUM</h3>
+    <h3>WELCOME TO {{currentAlbum}} ALBUM</h3>
 </div>
 
 
@@ -27,7 +27,7 @@
 
 <!--GALLERY SECTION TO DISPLAY IMAGES-->
 <div class="row">
-    <div class="col-sm-3 col-md-3 imagesCol" ng-repeat="image in images | filter:{'album' : currentAlbum}:true"> 
+    <div class="col-sm-3 col-md-3 imagesCol" ng-repeat="image in images | filter:{'album' : currentAlbum}:true3"> 
         <img ng-src="{{image.image}}" height="100px" width="100px" >
     </div>
 </div>   

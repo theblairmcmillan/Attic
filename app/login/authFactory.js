@@ -6,7 +6,6 @@ app.factory("authFactory",["$location", function ($location) {
 
   var userData = {};
 
-
   return {
 
     // DETERMINE IF CLIENT IS AUTHORIZED //
@@ -42,6 +41,10 @@ app.factory("authFactory",["$location", function ($location) {
       ref.unauth();
       $location.path("/login");
       console.log("logout succesful");
+    },
+    setUserData(uid, email) {
+      userData.email = email;
+      userData.uid = uid;
     },
     getUserData() {
         return userData;

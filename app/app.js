@@ -4,7 +4,6 @@ let app = angular.module("atticApp", ["ngRoute", "firebase", "ngFileUpload"]);
 
 app.config(function($routeProvider) {
 
-
     $routeProvider
         .when('/login', {
           templateUrl: "app/login/login.html",
@@ -20,3 +19,4 @@ app.config(function($routeProvider) {
         })
     .otherwise({ redirectTo: '/login' });
 });
+

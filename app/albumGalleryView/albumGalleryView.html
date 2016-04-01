@@ -7,7 +7,7 @@
         </div>
         <div class="collapse navbar-collapse navbar-menubuilder">
             <ul class="nav navbar-nav navbar-right">
-            	<li><a id="addImageButton" ngf-select="upload($file)">Add Images</a>
+            	<li><a id="addImageButton" ngf-select="upload($files)">Add Images</a>
                 <li><a id="addAlbumButton">Your Albums</a></li>
                 <li><a ng-click="logout()">Logout</a>
                 </li>
@@ -16,8 +16,8 @@
     </div>
 </div> <!-- END OF NAVBAR -->
 <div class="pageHeader">
-        <h3>WELCOME TO ALBUM</h3>
-    </div>
+    <h3>WELCOME TO ALBUM</h3>
+</div>
 
 
 <!--IMAGE DROP AREA-->
@@ -26,10 +26,10 @@
 
 <!--GALLERY SECTION TO DISPLAY IMAGES-->
 <div class="row">
-        <div class="col-sm-3 col-md-3 imagesCol" ng-repeat="image in images"> 
-            <img ng-src="{{image.image}}" height="100px" width="100px">
-        </div>
-    </div>   
+    <div class="col-sm-3 col-md-3 imagesCol" ng-repeat="image in images | filter:{'album' : currentAlbum}:true"> 
+        <img ng-src="{{image.image}}" height="100px" width="100px" >
+    </div>
+</div>   
        
 
 

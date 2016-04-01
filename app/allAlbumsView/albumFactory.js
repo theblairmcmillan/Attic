@@ -4,16 +4,9 @@ app.factory("albumFactory",["$location","authFactory", function ($location, auth
 	var userData = authFactory.getUserData();
 	var usersAlbumsRef = new Firebase("https://atticapp.firebaseio.com/users/" + userData.uid + "/albums");
   
-  	var currentAlbumKey = "";
   	var allAlbums;	
 
   	return {
-	    getCurrentAlbum() {
-	    	return currentAlbumKey;
-	    },
-	    setCurrentAlbum(key) {
-	    	currentAlbumKey = key;
-	    },
 	    getAllAlbums() {
 	    	usersAlbumsRef.once("value", function (snapshot) {
 		    	allAlbums = snapshot.val();

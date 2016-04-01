@@ -6,6 +6,7 @@ app.factory("authFactory",["$location", function ($location) {
 
   var userData = {};
 
+
   return {
 
     // DETERMINE IF CLIENT IS AUTHORIZED //

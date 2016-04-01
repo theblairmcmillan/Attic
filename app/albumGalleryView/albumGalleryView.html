@@ -7,6 +7,7 @@
         </div>
         <div class="collapse navbar-collapse navbar-menubuilder">
             <ul class="nav navbar-nav navbar-right">
+                <li><a id="inviteButton" ng-click="inviteButton" data-toggle="modal" data-target=".bd-example-modal-sm">Invite</a></li>
             	<li><a id="addImageButton" ngf-select="upload($files)">Add Images</a>
                 <li><a id="addAlbumButton">Your Albums</a></li>
                 <li><a ng-click="logout()">Logout</a>
@@ -30,8 +31,19 @@
         <img ng-src="{{image.image}}" height="100px" width="100px" >
     </div>
 </div>   
-       
 
+<!--ADDING NEW PERSON TO ALBUM MODAL -->
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <h4>Add a new member to this album</h4>
+                <!--INPUTS-->
+                <input type="email" class="form-control" placeholder="email" ng-model="invitedUser">
+                <!--BUTTON-->
+                <button type="button" class="btn btn-default" ng-click="inviteUser()">Add User</button>
+            </div>
+        </div>
+    </div> <!--END OF CREATE ALBUM MODAL-->
 
 </div> <!-- END OF PARTIAL -->
 

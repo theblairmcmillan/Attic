@@ -1,21 +1,30 @@
 "use strict";
-app.controller("albumGalleryController", ["$scope", "$location", "authFactory", "albumFactory", "Upload", function($scope, $location, authFactory, albumFactory, Upload) {
-	console.log("albums gallery controller");
+app.controller("albumGalleryController", ["$scope", "$location", "$routeParams", "authFactory", "albumFactory", "Upload", "$firebaseArray", 
+	function($scope, $location, $routeParams, authFactory, albumFactory, Upload, $firebaseArray) {
 
 	var userData = authFactory.getUserData();
-	console.log("userDataFromAlbumGalleryControl", userData);
-
 	var imagesRef = new Firebase("https://atticapp.firebaseio.com/images");
+	var currentAlbumKey = $routeParams.id;
+	$scope.currentAlbum = currentAlbumKey;
 
-	var currentAlbumKey = albumFactory.getCurrentAlbum();
-	
+	// LOADING IMAGES TO DOM ON PAGE LOAD WITH ANGULARFIRE // 
+	var afRef = $firebaseArray(imagesRef);
+	afRef.$loaded()
+	.then(function(data) {
+	    console.log(data);
+	    $scope.images = data;
+	})
+	.catch(function(error) {
+	    console.error("Error:", error);
+	});
+
 
 	// UPLOADING IMAGE TO FIREBASE //
-	 $scope.upload = function(file) {
-	    Upload.base64DataUrl(file).then(function(base64Urls){
-	    	console.log("Image upload function triggered");
+	 $scope.upload = function(files) {
+	    Upload.base64DataUrl(files).then(function(base64Urls){
+	    	// console.log("Image upload function triggered");
 	    	imagesRef.push({
-	    		image: base64Urls,
+	    		image: base64Urls[0],
 	    		album: currentAlbumKey,
 	    		uploaded_by: userData.uid
 	    	})
@@ -58,14 +67,6 @@ app.controller("albumGalleryController", ["$scope", "$location", "authFactory", 
 	    });
         $('div.fade').remove();
 	};
-
-	// CHECKING FOR IMAGES TO DISPLAY TO THE ALBUM PAGE // 
-	imagesRef.once("value", function(snapshot) {
-  		$scope.images = snapshot.val();
-		console.log("IMAGES",$scope.images);
-		console.log("CHECKED FOR IMAGES");
-	});
-
 
 
 }]);

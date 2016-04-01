@@ -11,6 +11,7 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory", "al
 
 	$scope.albums = '';
 
+	// LOADING ALBUMS TO DOM ON PAGE LOAD WITH ANGULARFIRE // 
 	var afRef = $firebaseArray(albumsRef);
 	afRef.$loaded()
 	.then(function(data) {
@@ -19,16 +20,6 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory", "al
 	})
 	.catch(function(error) {
 	    console.error("Error:", error);
-	});
-
-
-
-
-	albumsRef.on('child_added', function(snapshot) {
-	   	// console.log("snapshot:", snapshot);
-	    currentAlbumKey = snapshot.key();
-	    // console.log("currentAlbumKey", currentAlbumKey);
-	    albumFactory.setCurrentAlbum(currentAlbumKey);
 	});
 
 	// LOGOUT BUTTON //
@@ -50,7 +41,6 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory", "al
 	    usersAlbumsRef.limitToLast(1).once("child_added", function (snapshot) {
 	    	key = snapshot.key();
 	    });
-	    // albumFactory.setCurrentAlbum($scope.album);
         $('div.fade').remove();
     	$location.path(`/album-gallery/${key}`);
 	};

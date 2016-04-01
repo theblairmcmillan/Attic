@@ -1,6 +1,6 @@
 "use strict";
 
-let app = angular.module("atticApp", ["ngRoute", "flow", "ngFileUpload"]);
+let app = angular.module("atticApp", ["ngRoute", "firebase", "ngFileUpload"]);
 
 app.config(function($routeProvider) {
 

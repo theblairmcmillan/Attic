@@ -63,7 +63,7 @@ app.controller("albumGalleryController", ["$scope", "$location", "authFactory", 
 	imagesRef.once("value", function(snapshot) {
   		$scope.images = snapshot.val();
 		console.log("IMAGES",$scope.images);
-		console.log("CHECKING FOR IMAGES");
+		console.log("CHECKED FOR IMAGES");
 	});
 
 

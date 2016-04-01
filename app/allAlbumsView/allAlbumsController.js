@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("allAlbumsController", ["$scope", "$location", "authFactory", "albumFactory", function ($scope, $location, authFactory, albumFactory) {
+app.controller("allAlbumsController", ["$scope", "$location", "authFactory", "albumFactory", "$firebaseArray", function ($scope, $location, authFactory, albumFactory, $firebaseArray) {
 
 	var userData = authFactory.getUserData();
 	console.log("userDataFromAlbumControl", userData);
@@ -10,6 +10,18 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory", "al
 	var currentAlbumKey = null;
 
 	$scope.albums = '';
+
+	var afRef = $firebaseArray(albumsRef);
+	afRef.$loaded()
+	.then(function(data) {
+	    console.log(data);
+	    $scope.albums = data;
+	})
+	.catch(function(error) {
+	    console.error("Error:", error);
+	});
+
+
 
 
 	albumsRef.on('child_added', function(snapshot) {
@@ -43,11 +55,6 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory", "al
     	$location.path(`/album-gallery/${key}`);
 	};
 
-	// CHECKING FOR ALBUMS TO DISPLAY TO THE PAGE // 
-	albumsRef.once("value", function(snapshot) {
-  		$scope.albums = snapshot.val();
-		console.log($scope.albums);
-	});
 
 	// GO INSIDE SELECTED ALBUM //
 	$scope.goToAlbum = (key) => {

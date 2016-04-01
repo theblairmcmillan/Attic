@@ -5,7 +5,7 @@ app.factory("authFactory",["$location", function ($location) {
   let ref = new Firebase("https://atticapp.firebaseio.com/");
 
   var userData = {};
-  
+
 
   return {
 

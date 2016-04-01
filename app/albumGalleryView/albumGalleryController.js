@@ -5,6 +5,7 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
 	var userData = authFactory.getUserData();
 	var imagesRef = new Firebase("https://atticapp.firebaseio.com/images");
 	var currentAlbumKey = $routeParams.id;
+	var membersRef = new Firebase("https://atticapp.firebaseio.com/albums/" + currentAlbumKey +"/members");
 	$scope.currentAlbum = currentAlbumKey;
 
 	// LOADING IMAGES TO DOM ON PAGE LOAD WITH ANGULARFIRE // 
@@ -66,6 +67,15 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
 	    	album: currentAlbumKey
 	    });
         $('div.fade').remove();
+	};
+
+
+	// INVITING USER TO CURRENT ALBUM // 
+
+	$scope.inviteUser = () => {
+		console.log("clicked to invite user");
+		membersRef.push($scope.invitedUser);
+		$('div.fade').remove();
 	};
 
 

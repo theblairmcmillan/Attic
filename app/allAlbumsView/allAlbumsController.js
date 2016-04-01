@@ -8,6 +8,7 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory", "al
 	var albumsRef = new Firebase("https://atticapp.firebaseio.com/albums");
 	var usersAlbumsRef = new Firebase("https://atticapp.firebaseio.com/users/" + userData.uid + "/albums");
 	var currentAlbumKey = null;
+	$scope.currentUser = userData;
 
 	$scope.albums = '';
 

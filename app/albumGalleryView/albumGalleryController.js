@@ -15,7 +15,14 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
 	
 	var currentAlbumKey = $routeParams.id;
 	var membersRef = new Firebase("https://atticapp.firebaseio.com/albums/" + currentAlbumKey +"/members");
+	var currentAlbumRef = new Firebase("https://atticapp.firebaseio.com/albums/" + currentAlbumKey);
 	$scope.currentAlbum = currentAlbumKey;
+
+	currentAlbumRef.once("value", function(data){
+		console.log("dataaaaa", data.val());
+		$scope.currentAlbumName = data.val().album;
+	})
+
 
 	// LOADING IMAGES TO DOM ON PAGE LOAD WITH ANGULARFIRE // 
 	var afRef = $firebaseArray(imagesRef);

@@ -200,7 +200,7 @@
     }
    .pageHeader {
     display: block;
-    margin-top: 0;
+    margin-top: 20px;
     text-align: center;
     color: #454552;
     letter-spacing: 2em;
@@ -224,6 +224,15 @@ html {
 #imageDropReveal {
   display: inline-block;
   margin-left: 2%;
+}
+
+#galleryBlock {
+  background-image: url("icons/photography_@2X.png");
+  margin: 5% 5%;
+  border: 6px solid #454552;
+  border-radius: 6px;
+  height: 650px;
+  padding: 2px;
 }
 
 

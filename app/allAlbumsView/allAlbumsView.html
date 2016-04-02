@@ -39,8 +39,9 @@
         </div>
     </div>
     <div class="row">
+        <h3 class="pageHeader">CONNECTED ALBUMS<h3>
         <div class="col-sm-3 col-md-3 albumCol" ng-repeat="(key, value) in memberOf">
-            <div><img src="icons/foldericon.ico" height="100px" width="100px"></div>
+            <div><img src="icons/flatalbum.png" height="100px" width="100px"></div>
             <div ng-click="goToAlbum(value.$id)" id='{{value.$id}}'>{{value.album}} </div>
         </div>
     </div>

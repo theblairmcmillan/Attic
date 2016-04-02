@@ -2,14 +2,14 @@
 	<div id="custom-bootstrap-menu" class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header"><a class="navbar-brand" ng-click="albumView()">Attic</a>
+            <img id="dropLogo" src="icons/cloud down.png" height="30px" width="30px" ng-click="ShowHide()">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
             </button>
         </div>
         <div class="collapse navbar-collapse navbar-menubuilder">
             <ul class="nav navbar-nav navbar-right">
-                <li><a id="inviteButton" ng-click="inviteButton" data-toggle="modal" data-target=".bd-example-modal-sm">Invite</a></li>
-            	<li><a id="addImageButton" ngf-select="upload($files)">Add Images</a>
-                <li><a id="addAlbumButton">Your Albums</a></li>
+                <li><img src="icons/addpeople.png" height="33px" width="33px" id="inviteButton" ng-click="inviteButton" data-toggle="modal" data-target=".bd-example-modal-sm"></li>
+            	<li><img src="icons/flatCamera.png" height="33px" width="33px" id="addImageButton" ngf-select="upload($files)"></li>
                 <li><a ng-click="logout()">Logout</a>
                 </li>
             </ul>
@@ -17,13 +17,16 @@
     </div>
 </div> <!-- END OF NAVBAR -->
 <div class="pageHeader">
-    <h3>WELCOME TO {{currentAlbumName}}</h3>
+    <h3>{{currentAlbumName}} ALBUM</h3>
 </div>
 
 
 <!--IMAGE DROP AREA-->
-<div id="dropZone" ngf-drop="uploadFiles($files)" class="drop-box" ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-pattern="'image/*,application/pdf'">Drop Files Here</div>
-<div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+<div>
+    <!-- <img src="icons/cloud down.png" height="50px" width="50px" ng-click="ShowHide()"> -->
+    <div ng-hide="IsHidden" id="dropZone" ngf-drop="uploadFiles($files)" class="drop-box" ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-pattern="'image/*,application/pdf'">Drop Files Here</div>
+    <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+</div>
 
 <!--GALLERY SECTION TO DISPLAY IMAGES-->
 <!-- <div class="row">
@@ -81,7 +84,6 @@
             </div>
         </div>
     </div>
-    <h3 class="pageHeader">GALLERY</h3>
     <div class="row" id="galleryBlock">
         <div id="links">
             <a href="{{image.image}}" data-gallery ng-repeat="image in images | filter:{'album' : currentAlbum}:true3">

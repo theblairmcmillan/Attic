@@ -32,17 +32,18 @@
 		</div>
 	</div> <!--END OF CREATE ALBUM MODAL-->
     <!-- DISPLAY USERS ALBUMS -->
-    <div class="row">
+    <div class="row albumDiv">
         <div class="col-sm-3 col-md-3 albumCol" ng-repeat="(key, value) in albums | filter:{'author' : currentUser.uid}:true">
-            <div><img src="icons/foldericon.ico" height="100px" width="100px"></div>
-            <div ng-click="goToAlbum(value.$id)" id='{{value.$id}}'>{{value.album}} </div>
+            <div class="albumIcon"><img src="icons/filmRoll.jpg" height="100px" width="100px"></div>
+            <div class="albumLink" ng-click="goToAlbum(value.$id)" id='{{value.$id}}'>{{value.album}} </div>
         </div>
     </div>
-    <div class="row">
+    <!-- CONNECTED ALBUMS SECTION -->
+    <div class="row albumDiv">
         <h3 class="pageHeader">CONNECTED ALBUMS<h3>
         <div class="col-sm-3 col-md-3 albumCol" ng-repeat="(key, value) in memberOf">
-            <div><img src="icons/flatalbum.png" height="100px" width="100px"></div>
-            <div ng-click="goToAlbum(value.$id)" id='{{value.$id}}'>{{value.album}} </div>
+            <div class="albumIcon"><img src="icons/flatalbum.png" height="100px" width="100px"></div>
+            <div class="albumLink" ng-click="goToAlbum(value.$id)" id='{{value.$id}}'>{{value.album}} </div>
         </div>
     </div>
 </div> 

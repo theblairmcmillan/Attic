@@ -94,5 +94,11 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
 		$('div.fade').remove();
 	};
 
+	// TOGGLE DROPZONE //
+	$scope.IsHidden = true;
+        $scope.ShowHide = () => {
+            $scope.IsHidden = $scope.IsHidden ? false : true;
+            };
+
 
 }]);

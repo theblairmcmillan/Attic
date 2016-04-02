@@ -2,8 +2,17 @@
 app.controller("albumGalleryController", ["$scope", "$location", "$routeParams", "authFactory", "albumFactory", "Upload", "$firebaseArray", 
 	function($scope, $location, $routeParams, authFactory, albumFactory, Upload, $firebaseArray) {
 
-	var userData = authFactory.getUserData();
 	var imagesRef = new Firebase("https://atticapp.firebaseio.com/images");
+	var userData = {};
+	var authData = imagesRef.getAuth();
+	if (authData) {
+		console.log("Authenticated user with uid:", authData.uid);
+		userData.email = authData.password.email;
+		userData.uid = authData.uid;
+	} else {
+		console.log("No authentication data exists.");
+	}
+	
 	var currentAlbumKey = $routeParams.id;
 	var membersRef = new Firebase("https://atticapp.firebaseio.com/albums/" + currentAlbumKey +"/members");
 	$scope.currentAlbum = currentAlbumKey;

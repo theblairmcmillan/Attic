@@ -223,3 +223,6 @@ html {
 .fancybox-title iframe {
   min-height: 30px;
   vertical-align: middle; }
+
+#downloadLink {
+  margin-left: 50%; }

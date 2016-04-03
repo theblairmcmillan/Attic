@@ -41,6 +41,9 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
     	        	}
 		        });
 	        },
+	        afterLoad: function() {
+	        	this.title = '<a id="downloadLink" href="' + this.href + '" download="this.href.jpg"><img src="icons/floppyFlat.png" heigh="40px" width="40px"</a> ' + this.title;
+	        },
 	        helpers : {
 	            title : {
 	                type: 'inside'

@@ -4,6 +4,7 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
 
 	var imagesRef = new Firebase("https://atticapp.firebaseio.com/images");
 	var userData = {};
+	var currentImageKey = '';
 	var authData = imagesRef.getAuth();
 	if (authData) {
 		console.log("Authenticated user with uid:", authData.uid);
@@ -23,9 +24,36 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
 		$scope.currentAlbumName = data.val().album;
 	})
 
+	// FancyBox //
+	$(document).ready(function() {
+		// $(".fancybox").fancybox();
+		$(".fancybox")
+	    .attr('rel', 'gallery')
+	    .fancybox({
+	        beforeShow: function () {
+	        	this.title += '<br/><img src="icons/trashCan.png" id="trashImage" height="33px" width="33px">'
+    	        $('body').click(function(event) {
+    	        	if (event.target.id === 'trashImage') {
+	            	    // DELETE PHOTOS IN THE MODAL AND FIREBASE //
+						var deleteRef = new Firebase("https://atticapp.firebaseio.com/images/" + currentImageKey);
+						deleteRef.remove();
+						$.fancybox.close();
+    	        	}
+		        });
+	        },
+	        helpers : {
+	            title : {
+	                type: 'inside'
+	            }
+	        }
+	    });
+	});
 
-	
-
+	// getting current image key when clicked for deletion
+	$scope.getCurrentImage = (key) => {
+		console.log(key);
+		currentImageKey = key;
+	}
 
 
 
@@ -100,14 +128,10 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
 
 	// TOGGLE DROPZONE //
 	$scope.IsHidden = true;
-        $scope.ShowHide = () => {
-            $scope.IsHidden = $scope.IsHidden ? false : true;
-            };
+    $scope.ShowHide = () => {
+        $scope.IsHidden = $scope.IsHidden ? false : true;
+    };
 
-    // DELETE PHOTOS IN THE MODAL AND FIREBASE //
-   $scope.trashImage = () => {
-   	console.log("wooohooo");
-   };
 
 
 }]);

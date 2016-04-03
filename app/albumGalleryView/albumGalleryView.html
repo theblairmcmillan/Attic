@@ -29,11 +29,11 @@
 </div>
 
 <!--GALLERY SECTION TO DISPLAY IMAGES-->
-<div class="row">
+<!-- <div class="row">
     <div class="col-sm-3 col-md-3 imagesCol" ng-repeat="image in images | filter:{'album' : currentAlbum}:true3"> 
         <img ng-src="{{image.image}}" height="100px" width="100px">
     </div>
-</div>   
+</div>  -->  
 
 <!--ADDING NEW PERSON TO ALBUM MODAL -->
 <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog">
@@ -47,6 +47,14 @@
             </div>
         </div>
     </div> <!--END OF CREATE ALBUM MODAL-->
+
+    <!--Fancy Box Gallery -->
+    <div id="galleryBlock">
+        <a class="fancybox" rel="group" href="{{image.image}}" ng-repeat="image in images | filter:{'album' : currentAlbum}:true3" ng-click='getCurrentImage(image.$id)'><img src="{{image.image}}" alt="" height="100px" width="100px" /></a>
+    </div>
+    
+
+
 </div> <!-- END OF PARTIAL -->
 
 

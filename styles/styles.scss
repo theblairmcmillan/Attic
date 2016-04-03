@@ -234,6 +234,9 @@ html {
   height: 550px;
   padding: 2px;
 }
+#galleryBlock > a {
+  margin: 4px;
+}
 
 .albumDiv {
   margin: 5%;
@@ -262,6 +265,10 @@ html {
   margin-left: 2px;
 }
 
+.fancybox-title iframe {
+    min-height: 30px;
+    vertical-align: middle;
+}
 
 
 

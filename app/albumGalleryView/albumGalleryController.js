@@ -24,6 +24,11 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
 	})
 
 
+	
+
+
+
+
 	// LOADING IMAGES TO DOM ON PAGE LOAD WITH ANGULARFIRE // 
 	var afRef = $firebaseArray(imagesRef);
 	afRef.$loaded()
@@ -87,12 +92,22 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
 
 
 	// INVITING USER TO CURRENT ALBUM // 
-
 	$scope.inviteUser = () => {
 		console.log("clicked to invite user");
 		membersRef.push($scope.invitedUser);
 		$('div.fade').remove();
 	};
+
+	// TOGGLE DROPZONE //
+	$scope.IsHidden = true;
+        $scope.ShowHide = () => {
+            $scope.IsHidden = $scope.IsHidden ? false : true;
+            };
+
+    // DELETE PHOTOS IN THE MODAL AND FIREBASE //
+   $scope.trashImage = () => {
+   	console.log("wooohooo");
+   };
 
 
 }]);

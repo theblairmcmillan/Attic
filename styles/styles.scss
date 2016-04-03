@@ -210,7 +210,6 @@
 body,
 html {
   height: 100%
-  overflow: auto;
 }
 
 #dropZone {
@@ -228,13 +227,43 @@ html {
 }
 
 #galleryBlock {
-  background-image: url("icons/photography_@2X.png");
+  background-color: #3e4149;
   margin: 5% 5%;
   border: 6px solid #454552;
   border-radius: 6px;
-  height: 650px;
+  height: 550px;
   padding: 2px;
 }
+
+.albumDiv {
+  margin: 5%;
+  text-align: center;
+  font-family: futura;
+  letter-spacing: 2px;
+}
+
+.albumLink:hover {
+  color: rgba(232, 90, 113, 1); 
+
+}  
+
+#dropLogo {
+  margin-left: 3px;
+  margin-top: 8px;
+}
+
+#inviteButton {
+  margin-top: 8px;
+  margin-right: 10px;
+}
+
+#addImageButton {
+  margin-top: 8px;
+  margin-left: 2px;
+}
+
+
+
 
 
 

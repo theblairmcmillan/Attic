@@ -1,42 +1,45 @@
 <div id="albumGalleryView">
 	<div id="custom-bootstrap-menu" class="navbar navbar-default navbar-static-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header"><a class="navbar-brand" ng-click="albumView()">Attic</a>
-            <img id="dropLogo" src="icons/cloud down.png" height="30px" width="30px" ng-click="ShowHide()">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-            </button>
+        <div class="container-fluid">
+            <div class="navbar-header"><a class="navbar-brand" ng-click="albumView()">Attic</a>
+                <img id="dropLogo" src="icons/cloud down.png" height="30px" width="30px" ng-click="ShowHide()">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse navbar-menubuilder">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><img src="icons/addpeople.png" height="33px" width="33px" id="inviteButton" ng-click="inviteButton" data-toggle="modal" data-target=".bd-example-modal-sm"></li>
+                	<li><img src="icons/flatCamera.png" height="33px" width="33px" id="addImageButton" ngf-select="upload($files)"></li>
+                    <li><a ng-click="logout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div class="collapse navbar-collapse navbar-menubuilder">
-            <ul class="nav navbar-nav navbar-right">
-                <li><img src="icons/addpeople.png" height="33px" width="33px" id="inviteButton" ng-click="inviteButton" data-toggle="modal" data-target=".bd-example-modal-sm"></li>
-            	<li><img src="icons/flatCamera.png" height="33px" width="33px" id="addImageButton" ngf-select="upload($files)"></li>
-                <li><a ng-click="logout()">Logout</a>
-                </li>
-            </ul>
+    </div> <!-- END OF NAVBAR -->
+    <div class="pageHeader">
+        <h3>{{currentAlbumName}} ALBUM</h3>
+    </div>
+
+
+    <!--IMAGE DROP AREA-->
+    <div>
+        <div ng-hide="IsHidden" id="dropZone" ngf-drop="uploadFiles($files)" class="drop-box" ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-pattern="'image/*,application/pdf'">Drop Files Here</div>
+        <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+    </div>
+
+    <!--GALLERY SECTION TO DISPLAY IMAGES-->
+    <!-- <div class="row">
+        <div class="col-sm-3 col-md-3 imagesCol" ng-repeat="image in images | filter:{'album' : currentAlbum}:true3"> 
+            <img ng-src="{{image.image}}" height="100px" width="100px">
         </div>
-    </div>
-</div> <!-- END OF NAVBAR -->
-<div class="pageHeader">
-    <h3>{{currentAlbumName}} ALBUM</h3>
-</div>
+    </div>  -->  
 
-
-<!--IMAGE DROP AREA-->
-<div>
-    <!-- <img src="icons/cloud down.png" height="50px" width="50px" ng-click="ShowHide()"> -->
-    <div ng-hide="IsHidden" id="dropZone" ngf-drop="uploadFiles($files)" class="drop-box" ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-pattern="'image/*,application/pdf'">Drop Files Here</div>
-    <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
-</div>
-
-<!--GALLERY SECTION TO DISPLAY IMAGES-->
-<!-- <div class="row">
-    <div class="col-sm-3 col-md-3 imagesCol" ng-repeat="image in images | filter:{'album' : currentAlbum}:true3"> 
-        <img ng-src="{{image.image}}" height="100px" width="100px">
-    </div>
-</div>  -->  
-
-<!--ADDING NEW PERSON TO ALBUM MODAL -->
-<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog">
+    <!--ADDING NEW PERSON TO ALBUM MODAL -->
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <h4>Add a new member to this album</h4>
@@ -50,11 +53,11 @@
 
     <!--Fancy Box Gallery -->
     <div id="galleryBlock">
-        <span ng-repeat="image in images | filter:{'album' : currentAlbum}:true3">
+        <span ng-repeat="image in images | filter:{'album' : currentAlbum}:true3" ng-show="images">
             <a class="fancybox" rel="group" href="{{image.image}}" ng-click='getCurrentImage(image.$id)'>
                 <img src="{{image.image}}" alt="" height="100px" width="100px" />
             </a>
-            <img id="commentModalButton" src="icons/comments.png" height="20px" width="20px" ng-click="commentsBox" data-toggle="modal" data-target=".{{image.$id}}"/>
+            <img id="commentModalButton" src="icons/speak.png" height="14px" width="14px" ng-click="commentsBox" data-toggle="modal" data-target=".{{image.$id}}"/>
             <!-- LARGE MODAL FOR COMMENTS -->
             <div class="modal fade bs-example-modal-lg {{image.$id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg">
@@ -73,10 +76,11 @@
                 </div>
             </div>
         </span>
-    </div>
 
-    
-
+        <div id="loadingImage" ng-hide="images">
+            <img src="icons/loadingGif.gif">
+        </div>
+    </div> <!-- END OF #galleryBlock -->
 
 </div> <!-- END OF PARTIAL -->
 

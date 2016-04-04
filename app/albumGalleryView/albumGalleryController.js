@@ -31,7 +31,7 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
 	    .attr('rel', 'gallery')
 	    .fancybox({
 	        beforeShow: function () {
-	        	this.title += '<br/><img src="icons/trashCan.png" id="trashImage" height="33px" width="33px">'
+	        	this.title += '<img src="icons/trashCan.png" id="trashImage" height="33px" width="33px">'
     	        $('body').click(function(event) {
     	        	if (event.target.id === 'trashImage') {
 	            	    // DELETE PHOTOS IN THE MODAL AND FIREBASE //
@@ -42,7 +42,7 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
 		        });
 	        },
 	        afterLoad: function() {
-	        	this.title = '<a id="downloadLink" href="' + this.href + '" download="this.href.jpg"><img src="icons/floppyFlat.png" heigh="40px" width="40px"</a> ' + this.title;
+	        	this.title += '<a id="downloadLink" href="' + this.href + '" download="this.href.jpg"><img src="icons/floppyFlat.png" heigh="40px" width="40px"></a>';
 	        },
 	        helpers : {
 	            title : {
@@ -133,6 +133,18 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
 	$scope.IsHidden = true;
     $scope.ShowHide = () => {
         $scope.IsHidden = $scope.IsHidden ? false : true;
+    };
+
+
+    // LEAVING A COMMENT //
+    $scope.leaveComment = (comment) => {
+    	console.log(comment);
+    	console.log(event.target.id);
+    	var commentsRef = new Firebase("https://atticapp.firebaseio.com/images/" + event.target.id + "/comments");
+    	commentsRef.push({
+    		comment: comment,
+    		posted_by: userData.email
+    	});
     };
 
 

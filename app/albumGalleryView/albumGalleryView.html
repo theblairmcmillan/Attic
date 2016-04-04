@@ -50,8 +50,31 @@
 
     <!--Fancy Box Gallery -->
     <div id="galleryBlock">
-        <a class="fancybox" rel="group" href="{{image.image}}" ng-repeat="image in images | filter:{'album' : currentAlbum}:true3" ng-click='getCurrentImage(image.$id)'><img src="{{image.image}}" alt="" height="100px" width="100px" /></a>
+        <span ng-repeat="image in images | filter:{'album' : currentAlbum}:true3">
+            <a class="fancybox" rel="group" href="{{image.image}}" ng-click='getCurrentImage(image.$id)'>
+                <img src="{{image.image}}" alt="" height="100px" width="100px" />
+            </a>
+            <img id="commentModalButton" src="icons/comments.png" height="20px" width="20px" ng-click="commentsBox" data-toggle="modal" data-target=".{{image.$id}}"/>
+            <!-- LARGE MODAL FOR COMMENTS -->
+            <div class="modal fade bs-example-modal-lg {{image.$id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        {{image.$id}}
+                        <div id="allComments" ng-repeat="comment in image.comments">
+                            {{comment.comment}} --- {{comment.posted_by}}
+                        </div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Comment" ng-model="userComment">
+                            <span class="input-group-btn">
+                                <button id="{{image.$id}}" ng-click="leaveComment(userComment)" class="btn btn-secondary" type="button">Send</button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </span>
     </div>
+
     
 
 

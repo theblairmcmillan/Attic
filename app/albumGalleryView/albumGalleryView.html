@@ -39,14 +39,14 @@
     </div>  -->  
 
     <!--ADDING NEW PERSON TO ALBUM MODAL -->
-    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog">
+    <div class="modal fade bd-example-modal-sm" role="dialog">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
-                <h4>Add a new member to this album</h4>
+                <h4>Invite Member</h4>
                 <!--INPUTS-->
-                <input type="email" class="form-control" placeholder="email" ng-model="invitedUser">
+                <input type="email" class="form-control" placeholder="email" ng-model="invitedUser" autofocus>
                 <!--BUTTON-->
-                <button type="button" class="btn btn-default" ng-click="inviteUser()">Add User</button>
+                <button type="button" class="btn btn-default" ng-click="inviteUser()">Invite</button>
             </div>
         </div>
     </div> <!--END OF CREATE ALBUM MODAL-->
@@ -58,10 +58,12 @@
                 <img src="{{image.image}}" alt="" height="100px" width="100px" />
             </a>
             <img id="commentModalButton" src="icons/speak.png" height="14px" width="14px" ng-click="commentsBox" data-toggle="modal" data-target=".{{image.$id}}"/>
+            
+
             <!-- LARGE MODAL FOR COMMENTS -->
-            <div class="modal fade bs-example-modal-lg {{image.$id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal fade bs-example-modal-lg commentsModal {{image.$id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
+                    <div id="commentsModal"  class="modal-content">
                         {{image.$id}}
                         <div id="allComments" ng-repeat="comment in image.comments">
                             {{comment.comment}} --- {{comment.posted_by}}
@@ -78,7 +80,7 @@
         </span>
 
         <div id="loadingImage" ng-hide="images">
-            <img src="icons/loadingGif.gif">
+            <img src="icons/loadingGif.gif" width="500px" height="400px">
         </div>
     </div> <!-- END OF #galleryBlock -->
 

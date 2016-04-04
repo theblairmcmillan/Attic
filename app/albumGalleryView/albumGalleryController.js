@@ -31,7 +31,7 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
 	    .attr('rel', 'gallery')
 	    .fancybox({
 	        beforeShow: function () {
-	        	this.title += '<img src="icons/trashCan.png" id="trashImage" height="33px" width="33px">'
+	        	this.title += '<img src="icons/trashIcon.jpg" id="trashImage" height="36px" width="36px">'
     	        $('body').click(function(event) {
     	        	if (event.target.id === 'trashImage') {
 	            	    // DELETE PHOTOS IN THE MODAL AND FIREBASE //
@@ -42,7 +42,7 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
 		        });
 	        },
 	        afterLoad: function() {
-	        	this.title += '<a id="downloadLink" href="' + this.href + '" download="this.href.jpg"><img src="icons/floppyFlat.png" heigh="40px" width="40px"></a>';
+	        	this.title += '<a id="downloadLink" href="' + this.href + '" download="this.href.jpg"><img src="icons/floppy.jpg" heigh="60px" width="60px"></a>';
 	        },
 	        helpers : {
 	            title : {

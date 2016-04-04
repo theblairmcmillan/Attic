@@ -343,6 +343,22 @@ html {
   cursor: pointer;
 }
 
+#trashImage {
+  cursor: pointer;
+}
+
+#commentsModal {
+  background-color: rgba(232, 90, 113, 1);
+  color: white;
+  font-family: futura;
+  letter-spacing: 1px;
+}
+
+#commentModal:nth-child(odd) {
+  color: blue;
+}
+
+
 
 
 

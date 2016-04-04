@@ -20,10 +20,12 @@
 	<!-- <button type="button" class="btn btn-info" id="loginButton" data-toggle="modal" data-target=".bd-example-modal-sm">Login</button> -->
 	<!--LOGIN MODAL-->
 	<div class="modal fade bd-example-modal-sm" role="dialog">
-  		<div class="modal-dialog modal-md">
+  		<div class="modal-dialog modal-md opaqueModal">
     		<div class="modal-content">
     			<!--INPUTS-->
-    			<input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="account.email" autofocus>
+
+          <input type="text" class="form-control" id="userName" placeholder="Username" ng-model="account.username" autofocus>
+    			<input type="email" class="form-control" id="inputEmail3" placeholder="Email" ng-model="account.email">
     			 <input type="password" class="form-control" id="inputPassword3" placeholder="Password" ng-model="account.password">
     			 <div class="btn-group" role="group">
     			 	<!--BUTTONS-->

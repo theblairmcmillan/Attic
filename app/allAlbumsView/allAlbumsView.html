@@ -8,6 +8,7 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
+                    <li>{{currentUser.username}}</li>
                     <li><a id="addAlbumButton" data-toggle="modal" data-target=".bd-example-modal-sm">Add Album</a>
                     </li>
                     <li><a ng-click="logout()">Logout</a>
@@ -21,7 +22,7 @@
     </div>
 	<!--ADD ALBUM MODAL -->
 	<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog">
-  		<div class="modal-dialog modal-sm">
+  		<div class="modal-dialog modal-sm opaqueModal">
     		<div class="modal-content">
     			<h4>Create Album</h4>
     			<!--INPUTS-->

@@ -222,7 +222,7 @@
 
   
 
-.modal-dialog {
+.opaqueModal {
   opacity: 0.8;
 }
 
@@ -348,7 +348,7 @@ html {
 }
 
 #commentsModal {
-  background-color: rgba(232, 90, 113, 1);
+  background-color: rgba(232, 90, 113,1);
   color: white;
   font-family: futura;
   letter-spacing: 1px;
@@ -358,6 +358,10 @@ html {
   color: blue;
 }
 
+#allComments {
+  height: 300px;
+  overflow: scroll;
+}
 
 
 

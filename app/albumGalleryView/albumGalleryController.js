@@ -24,6 +24,14 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
 		$scope.currentAlbumName = data.val().album;
 	})
 
+	var usernameRef = new Firebase("https://atticapp.firebaseio.com/users/" + userData.uid + "/username");
+	usernameRef.once('value', function(data) {
+		userData.username = data.val();
+	})
+
+
+
+
 	// FancyBox //
 	$(document).ready(function() {
 		// $(".fancybox").fancybox();
@@ -163,7 +171,7 @@ app.controller("albumGalleryController", ["$scope", "$location", "$routeParams",
     	var commentsRef = new Firebase("https://atticapp.firebaseio.com/images/" + event.target.id + "/comments");
     	commentsRef.push({
     		comment: comment,
-    		posted_by: userData.email
+    		posted_by: userData.username
     	});
     };
 

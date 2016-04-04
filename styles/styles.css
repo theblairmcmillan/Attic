@@ -184,7 +184,7 @@
   font-family: futura;
   font-weight: bold; }
 
-.modal-dialog {
+.opaqueModal {
   opacity: 0.8; }
 
 /* BODY */
@@ -292,3 +292,7 @@ html {
 
 #commentModal:nth-child(odd) {
   color: blue; }
+
+#allComments {
+  height: 300px;
+  overflow: scroll; }

@@ -12,6 +12,7 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
+                    <li id="personInfo">{{currentUser.username}}</li>
                     <li><img src="icons/addpeople.png" height="33px" width="33px" id="inviteButton" ng-click="inviteButton" data-toggle="modal" data-target=".bd-example-modal-sm"></li>
                 	<li><img src="icons/flatCamera.png" height="33px" width="33px" id="addImageButton" ngf-select="upload($files)"></li>
                     <li><a ng-click="logout()">Logout</a>
@@ -40,7 +41,7 @@
 
     <!--ADDING NEW PERSON TO ALBUM MODAL -->
     <div class="modal fade bd-example-modal-sm" role="dialog">
-        <div class="modal-dialog modal-sm">
+        <div class="modal-dialog modal-sm opaqueModal">
             <div class="modal-content">
                 <h4>Invite Member</h4>
                 <!--INPUTS-->
@@ -54,19 +55,22 @@
     <!--Fancy Box Gallery -->
     <div id="galleryBlock">
         <span ng-repeat="image in images | filter:{'album' : currentAlbum}:true3" ng-show="images">
-            <a class="fancybox" rel="group" href="{{image.image}}" ng-click='getCurrentImage(image.$id)'>
-                <img src="{{image.image}}" alt="" height="100px" width="100px" />
-            </a>
-            <img id="commentModalButton" src="icons/speak.png" height="14px" width="14px" ng-click="commentsBox" data-toggle="modal" data-target=".{{image.$id}}"/>
-            
+            <div class='gallery-item'>
+                <a class="fancybox" rel="group" href="{{image.image}}" ng-click='getCurrentImage(image.$id)'>
+                    <img src="{{image.image}}" alt="" height="100px" width="100px" />
+                </a>
+                <img id="commentModalButton" src="icons/speak.png" height="14px" width="14px" ng-click="commentsBox" data-toggle="modal" data-target=".{{image.$id}}"/>
+            </div>
 
             <!-- LARGE MODAL FOR COMMENTS -->
             <div class="modal fade bs-example-modal-lg commentsModal {{image.$id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
                 <div class="modal-dialog modal-lg">
                     <div id="commentsModal"  class="modal-content">
-                        {{image.$id}}
-                        <div id="allComments" ng-repeat="comment in image.comments">
-                            {{comment.comment}} --- {{comment.posted_by}}
+                        <img src="{{image.image}}" alt="" height="100px" width="100px" />                        
+                        <div id="allComments">
+                            <div ng-repeat="comment in image.comments">
+                                {{comment.comment}} --- {{comment.posted_by}}
+                            </div>
                         </div>
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Comment" ng-model="userComment">

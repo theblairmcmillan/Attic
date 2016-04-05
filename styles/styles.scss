@@ -222,7 +222,7 @@
 
   
 
-.modal-dialog {
+.opaqueModal {
   opacity: 0.8;
 }
 
@@ -259,9 +259,10 @@ html {
   margin: 5% 5%;
   border: 6px solid #3e4149;
   border-radius: 6px;
-  height: 550px;
+  min-height: 550px;
   padding: 2px;
-  box-shadow: 10px 10px 5px #888888;
+  box-shadow: 3px 3px 3px #888888;
+  text-align: center;
 }
 #galleryBlock > a {
   margin: 4px;
@@ -284,18 +285,22 @@ html {
   text-align: center;
   font-family: futura;
   letter-spacing: 2px;
+  cursor: pointer;
 }
 
+ 
+
 .albumLink:hover {
-  color: rgba(232, 90, 113, 1); 
+  color: rgba(232, 90, 113, 1);
 }  
 
-.albumCol:hover {
+/*.albumCol:hover {
   border: 3px solid #3e4149;
   border-radius: 6px;
   cursor: pointer;
-  box-shadow: 10px 10px 5px #888888;
-}
+  box-shadow: 2px 2px 2px #888888;
+  box-sizing: border-box;
+}*/
 
 /* INVITE USERS BUTTON */
 #inviteButton {
@@ -348,7 +353,7 @@ html {
 }
 
 #commentsModal {
-  background-color: rgba(232, 90, 113, 1);
+  background-color: rgba(232, 90, 113,1);
   color: white;
   font-family: futura;
   letter-spacing: 1px;
@@ -358,9 +363,55 @@ html {
   color: blue;
 }
 
+#allComments {
+  height: 300px;}
+
+#personInfo {
+  color: white;
+  margin-right: 15px;
+  margin-top: 15px;
+
+}
+
+#connectedDiv {
+  background-color: #d8e9ef;
+  padding: 15px 0 15px 0;
+ 
+}
+
+.albumLink {
+  margin: 5%;
+  text-align: center;
+  font-family: futura;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+ 
+
+.albumLink:hover {
+  color: rgba(232, 90, 113, 1);
+}
+
+.gallery-item {
+  display: inline-block;
+  margin-bottom: 15px;
+  background-color: #545863;
+}
+.gallery-item > img {
+  vertical-align: bottom;
+}
+#commentModalButton {
+  margin-right: 3px;
+}
 
 
-
+/*.fancybox > img {
+  padding-top: 10px;
+  
+}
+*/
 
 
 

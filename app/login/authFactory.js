@@ -42,9 +42,10 @@ app.factory("authFactory",["$location", function ($location) {
       $location.path("/login");
       console.log("logout succesful");
     },
-    setUserData(uid, email) {
+    setUserData(uid, email, username) {
       userData.email = email;
       userData.uid = uid;
+      userData.username = username;
     },
     getUserData() {
         return userData;

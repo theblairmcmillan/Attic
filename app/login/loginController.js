@@ -4,10 +4,11 @@ app.controller("loginController", ["$scope", "$location","$http", "authFactory",
     let ref = new Firebase("https://atticapp.firebaseio.com/");
 
     // VARIABLES ON SCOPE FOR USE IN DOM //
-    $scope.account = { email: "", password: "" };
+    $scope.account = { email: "", password: "", username: "" };
 
     // REGISTER NEW ACCOUNT AND LOG USER IN //
     $scope.userSignUp = () => {
+      console.log($scope.account.username);
       ref.createUser({
         email    : $scope.account.email,
         password : $scope.account.password
@@ -20,7 +21,8 @@ app.controller("loginController", ["$scope", "$location","$http", "authFactory",
           var usersRef = new Firebase("https://atticapp.firebaseio.com/users/" + userData.uid);
 
           usersRef.set({
-          	 email    : $scope.account.email
+          	 email    : $scope.account.email,
+             username : $scope.account.username
           });
 
           $scope.userLogin();

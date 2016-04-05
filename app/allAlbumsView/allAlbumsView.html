@@ -8,7 +8,7 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>{{currentUser.username}}</li>
+                    <li id="personInfo">{{currentUser.username}}</li>
                     <li><a id="addAlbumButton" data-toggle="modal" data-target=".bd-example-modal-sm">Add Album</a>
                     </li>
                     <li><a ng-click="logout()">Logout</a>
@@ -34,14 +34,14 @@
 	</div> <!--END OF CREATE ALBUM MODAL-->
     <!-- DISPLAY USERS ALBUMS -->
     <div class="row albumDiv">
-        <div class="col-sm-3 col-md-3 albumCol" ng-repeat="(key, value) in albums | filter:{'author' : currentUser.uid}:true">
+        <div class="col-sm-3 col-md-3 albumCol" ng-click="goToAlbum(value.$id)" ng-repeat="(key, value) in albums | filter:{'author' : currentUser.uid}:true">
             <div class="albumIcon"><img src="icons/filmRoll.jpg" height="100px" width="100px"></div>
-            <div class="albumLink" ng-click="goToAlbum(value.$id)" id='{{value.$id}}'>{{value.album}} </div>
+            <div class="albumLink"  id='{{value.$id}}'>{{value.album}} </div>
         </div>
     </div>
     <!-- CONNECTED ALBUMS SECTION -->
     <div class="row albumDiv">
-        <h3 class="pageHeader">CONNECTED ALBUMS<h3>
+        <h3 id="connectedDiv"  class="pageHeader">CONNECTED ALBUMS<h3>
         <div class="col-sm-3 col-md-3 albumCol" ng-repeat="(key, value) in memberOf">
             <div class="albumIcon"><img src="icons/connectedAlbums.png" height="80px" width="80px"></div>
             <div class="albumLink" ng-click="goToAlbum(value.$id)" id='{{value.$id}}'>{{value.album}} </div>

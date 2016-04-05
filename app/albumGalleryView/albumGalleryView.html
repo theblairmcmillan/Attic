@@ -12,6 +12,7 @@
             </div>
             <div class="collapse navbar-collapse navbar-menubuilder">
                 <ul class="nav navbar-nav navbar-right">
+                    <li id="personInfo">{{currentUser.username}}</li>
                     <li><img src="icons/addpeople.png" height="33px" width="33px" id="inviteButton" ng-click="inviteButton" data-toggle="modal" data-target=".bd-example-modal-sm"></li>
                 	<li><img src="icons/flatCamera.png" height="33px" width="33px" id="addImageButton" ngf-select="upload($files)"></li>
                     <li><a ng-click="logout()">Logout</a>

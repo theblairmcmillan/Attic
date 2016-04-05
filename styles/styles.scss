@@ -259,9 +259,10 @@ html {
   margin: 5% 5%;
   border: 6px solid #3e4149;
   border-radius: 6px;
-  height: 550px;
+  min-height: 550px;
   padding: 2px;
   box-shadow: 3px 3px 3px #888888;
+  text-align: center;
 }
 #galleryBlock > a {
   margin: 4px;
@@ -391,14 +392,26 @@ html {
 
 .albumLink:hover {
   color: rgba(232, 90, 113, 1);
-} 
+}
+
+.gallery-item {
+  display: inline-block;
+  margin-bottom: 15px;
+  background-color: #545863;
+}
+.gallery-item > img {
+  vertical-align: bottom;
+}
+#commentModalButton {
+  margin-right: 3px;
+}
 
 
-
-
-
-
-
+/*.fancybox > img {
+  padding-top: 10px;
+  
+}
+*/
 
 
 

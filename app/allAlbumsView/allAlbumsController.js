@@ -87,18 +87,11 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory", "al
 	// DELETE ALBUM //
 	$scope.albumDelete = (id) => {
 		var albumDeleteRef = new Firebase("https://atticapp.firebaseio.com/albums/" + id);
-		console.log("hello world");
-		console.log(id);
-		albumDeleteRef.remove();
+		var response = confirm("Once you delete an album it's gone forever!");
+		if(response) albumDeleteRef.remove();
+		else return;
 	};
 
-
-
-
-
-
-
-	 
 }]);
 
 

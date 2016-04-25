@@ -81,6 +81,23 @@ app.controller("allAlbumsController", ["$scope", "$location", "authFactory", "al
 	$scope.goToAlbum = (key) => {
 		$location.path(`/album-gallery/${key}`);
 	};
+
+
+	
+	// DELETE ALBUM //
+	$scope.albumDelete = (id) => {
+		var albumDeleteRef = new Firebase("https://atticapp.firebaseio.com/albums/" + id);
+		console.log("hello world");
+		console.log(id);
+		albumDeleteRef.remove();
+	};
+
+
+
+
+
+
+
 	 
 }]);
 

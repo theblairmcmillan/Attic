@@ -35,8 +35,9 @@
     <!-- DISPLAY USERS ALBUMS -->
     <div class="row albumDiv">
         <div class="col-sm-3 col-md-3 albumCol" ng-click="goToAlbum(value.$id)" ng-repeat="(key, value) in albums | filter:{'author' : currentUser.uid}:true">
+            <div class="albumDelete"><img src="icons/albumDelete.png" height="15px" width="15px" ng-click="albumDelete(value.$id); $event.stopPropagation();"></div>
             <div class="albumIcon"><img src="icons/filmRoll.jpg" height="100px" width="100px"></div>
-            <div class="albumLink"  id='{{value.$id}}'>{{value.album}} </div>
+            <div class="albumLink"  id='{{value.$id}}'>{{value.album | uppercase}} </div>
         </div>
     </div>
     <!-- CONNECTED ALBUMS SECTION -->
@@ -47,6 +48,8 @@
             <div class="albumLink" ng-click="goToAlbum(value.$id)" id='{{value.$id}}'>{{value.album}} </div>
         </div>
     </div>
-</div> 
+     
+</div>
+
 
 

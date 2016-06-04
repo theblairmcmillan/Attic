@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theblairmcmillan/attic.git"
   },
   "author": "",
   "license": "ISC",
@@ -15,5 +20,8 @@
     "gulp-watch": "^4.3.5",
     "jshint": "^2.9.1",
     "jshint-stylish": "^2.1.0"
+  },
+  "dependencies": {
+    "express": "^4.13.4"
   }
 }

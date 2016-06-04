@@ -2,7 +2,8 @@
 
 var express = require('express');
 var path = require('path');
-var cons = require('consolidate');
+
+var PORT = process.env.PORT || 3002;
 
 
 var app = express();
@@ -12,5 +13,9 @@ app.use(express.static(staticPath));
 
 app.get('/', function(req, res){
 	res.render('index');
+});
+
+app.listen(PORT, function(){
+	console.log("server listening");
 });
 
